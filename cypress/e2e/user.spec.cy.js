@@ -2,19 +2,16 @@ import userData from '../fixtures/users/userData.json'
 import LoginPage from '../pages/loginPage'
 import DashboardPage from '../pages/dashboardPage'
 import MyInfoPage from '../pages/myInfoPage'
+import MenuPage from '../pages/menuPage'
 
 const loginPage = new LoginPage ()
 const dashboardPage = new DashboardPage ()
 const myInfoPage = new MyInfoPage ()
+const menuPage = new MenuPage ()
 
 describe('Orange HRM Tests', () => {
 
-  const selectorsList = {
-
-    myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
-    
-  }
-
+  
   
   it.only('User Info Update - Sucess', () => {
 
@@ -22,6 +19,8 @@ describe('Orange HRM Tests', () => {
     loginPage.loginWithUser(userData.userSucess.username, userData.userSucess.password)
     
     dashboardPage.checkDashboardPage()
+
+    menuPage.accessMyInfo()
     
     
     cy.get(selectorsList.myInfoButton).click()
