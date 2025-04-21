@@ -22,25 +22,11 @@ describe('Orange HRM Tests', () => {
 
     menuPage.accessMyInfo()
     
-    
-    cy.get(selectorsList.myInfoButton).click()
-    cy.get(selectorsList.firtNameField).clear().type('FirstName')
-    cy.get(selectorsList.middleNameField).clear().type('MiddleName')
-    cy.get(selectorsList.lastNameField).clear().type('LastName')
-    cy.get(selectorsList.genericField).eq(3).clear().type('TestCY')
-    cy.get(selectorsList.genericField).eq(4).clear().type('45454')
-    cy.get(selectorsList.genericField).eq(5).clear().type('111.111')
-    cy.get(selectorsList.genericField).eq(6).clear().type('12345678')
-    cy.get(selectorsList.genericField).eq(7).clear().type('2026-04-19')
-    cy.get(selectorsList.dateCloseButton).click()
-    cy.get(selectorsList.genericCombobox).eq(0).click({force: true})
-    cy.get(selectorsList.secondItemCombobox).click()
-    cy.get(selectorsList.genericCombobox).eq(1).click()
-    cy.get(selectorsList.thirdItemCombobox).click({force: true})
-    cy.get(selectorsList.submitButton).eq(0).click({force: true})
-    cy.get('body').should('contain', 'Successfully Updated')
-    cy.get('.oxd-toast-close')
-
+    myInfoPage.fillPersonalDetails('First Name', 'Middle Name', 'Last Name', 'Nickname')
+    myInfoPage.fillEmployeeDetails('126652', '4164', '56465465', '2026-04-21', '55465', '22454')
+    myInfoPage.fillStatus()
+    myInfoPage.saveForm()
+         
   })
   it('Login - Fail', () => {
 
