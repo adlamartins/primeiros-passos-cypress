@@ -2,7 +2,7 @@
 
 This project utilizes Cypress to automate the testing of a login feature and a user update feature - Orange HRM
 
-## Instalation
+## Installation
 ```bash
 npm install
 ```
